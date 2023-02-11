@@ -1,0 +1,26 @@
+﻿<Window x:Class="Project1.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FFFFE4CD">
+        <ListBox Name="listBox" ItemsSource="{Binding Users}" SelectionMode="Single" SelectedItem="{Binding SelectedUser}" Margin="160,80,206,106" FontFamily="Georgia" FontSize="18" Background="#FFDEE2E2" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold"
+                                   Foreground="Black"
+                                   Text="{Binding UserName}" />
+                    </StackPanel>
+                    </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Add new user" HorizontalAlignment="Left" Margin="191,358,0,0" FontFamily="Georgia" FontSize="18" VerticalAlignment="Top" Command="{Binding Path=AddCommand}" Width="140" Height="34" />
+        <Button Content="Details" HorizontalAlignment="Left" Margin="422,358,0,0" FontFamily="Georgia" FontSize="18" VerticalAlignment="Top" Command="{Binding Path=DetailsCommand}" Width="140"  Height="34"/>
+        <Label Content="User list:" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="22" Margin="160,33,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

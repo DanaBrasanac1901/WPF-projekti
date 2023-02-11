@@ -1,0 +1,29 @@
+﻿<Window x:Class="Project2.View.AdminMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project2.View"
+        mc:Ignorable="d"
+        Title="AdminMain" Height="450" Width="800">
+    <Grid Background="#FFE9DFB8">
+        <DataGrid ItemsSource="{Binding Products}"  SelectedItem="{Binding SelectedProduct}" Margin="35,64,261,56" FontSize="18" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" FontStyle="Normal" IsReadOnly="True"  BorderBrush="Black" FontFamily="Georgia" AreRowDetailsFrozen="True"  RowHeight="30" AutoGenerateColumns="False" ClipboardCopyMode="ExcludeHeader" HeadersVisibility="Column" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Current Price" Binding="{Binding Price}" Width="*"/>
+                <DataGridTextColumn Header="Bidder" Binding="{Binding Bidder}" Width="*"/>
+                <DataGridCheckBoxColumn Header="Is bid closed" IsReadOnly="True" Binding="{Binding IsClosed}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Add new product" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="18" Margin="583,275,0,0" VerticalAlignment="Top" Height="40" Width="150" Command="{Binding Path=AddCommand}"/>
+        <Button Content="Delete product" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="18" Margin="583,334,0,0" VerticalAlignment="Top" Height="40" Width="150" Command="{Binding Path=DeleteCommand}"/>
+        <Button Content="Log out" HorizontalAlignment="Left"  FontFamily="Georgia" FontSize="18" Margin="583,64,0,0" VerticalAlignment="Top"  Command="{Binding Path=LogoutCommand}" Height="40" Width="150"/>
+        <Label Content="Products" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="22" Margin="35,24,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
